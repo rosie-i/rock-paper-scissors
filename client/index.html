@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock Paper Scissors</title>
+    <link rel="stylesheet" href="styles/main.css">
+</head>
+
+<body>
+    <div class="rps-wrapper">
+        <!-- Unordered list for events coming from the server -->
+        <ul id="events"></ul>
+
+        <div class="controls">
+            <div class="chat-wrapper">
+                <form id="chat-form">
+                    <input id="chat-input" autocomplete="off" title="chat"/>
+                    <button id="send-msg">Send</button>
+                </form>
+            </div>
+
+            <div class="button-wrapper">
+                <button id="rock">Rock</button>
+                <button id="paper">Paper</button>
+                <button id="scissors">Scissors</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Make sure to import socket.io script before client, as client needs to use socket! -->
+    <!-- This file doesn't actually exist. But remember our const io in our server.
+        It's wrapped round the server, so when io detects that our client/web page is 
+        requesting socket.io.js, it will send as a string the code of the client side.
+        So you don't have to worry about separately downloading client and server parts.
+     -->
+     <!-- Apparently this method has downsides for packaging and can later look at WebPack
+        to change the approach somewhat - but this will work fine for now. -->
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="src/client.js"></script>
+</body>
+
+</html>
